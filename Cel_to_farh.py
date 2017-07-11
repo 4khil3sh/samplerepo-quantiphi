@@ -1,0 +1,6 @@
+print('Input celsius temp to be converted')
+a = input()
+print('Fahrenheit temp:' + str((float(a*9)/5)+32))
+print('Input fahrenheit temp to be converted')
+b = input()
+print('Celsius temp:' + str(float((b-32)*5)/9))
