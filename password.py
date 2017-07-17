@@ -1,26 +1,25 @@
-import sys
-
-a = sys.argv[1]
-if(len(a)>=6 or len(a)<= 16):
-	print('Password length is valid')
-	if(any(i.islower() for i in a)):
-		print('Password has a lower character')
-		if(any(i.isupper() for i in a)):
-			print('Password has a upper character')
-			if(any(i.isalnum() for i in a)):
-				print('Password has a number')
-				chars = set('$#@')
-				if any((c in chars) for c in a):
-					print('Password has a special character')
-					print('Password is valid!!')
+def validate(s):
+	a = s
+	if(len(a)>=6 or len(a)<= 16):
+		if(any(i.islower() for i in a)):
+			if(any(i.isupper() for i in a)):
+				if(any(i.isalnum() for i in a)):
+					chars = set('$#@')
+					if any((c in chars) for c in a):
+						q = 'Valid'
+					else:
+						q = 'Not Valid'
 				else:
-					print('Password has no special character')
+					q = 'Not Valid'
 			else:
-				print('Password has no number')
+				q = 'Not Valid'
 		else:
-			print('Password has no upper case character')
+			q = 'Not Valid'
 	else:
-		print('Password has no lower character')
-else:
-	print('Password length is invalid')
-					
+		q = 'Not Valid'
+	return q;
+def main(s):
+	print(validate(s))
+if __name__ == '__main__':
+	s = raw_input('Enter the password: ')
+    	main(s)
